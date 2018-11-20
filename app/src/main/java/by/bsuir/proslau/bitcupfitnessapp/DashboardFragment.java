@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
     private TextView tvCalories;
     private TextView tvLeftToGo;
     private TextView tvAverage;
+
+    private ProgressBar progressBar;
 
     private int preferedSteps = 0;
 
@@ -37,6 +40,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
         tvCalories = (TextView)view.findViewById(R.id.tv_calories);
         tvLeftToGo = (TextView)view.findViewById(R.id.tv_left_to_go);
         tvAverage = (TextView)view.findViewById(R.id.tv_average);
+        progressBar = (ProgressBar)view.findViewById(R.id.progressBar);
 
         btnSet.setOnClickListener(this);
         return view;
@@ -69,6 +73,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
     }
 
     public void setTvPerсent(int perсent) {
+        progressBar.setProgress(perсent);
         tvPerсent.setText(perсent + "%");
     }
 
